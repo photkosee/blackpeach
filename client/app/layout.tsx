@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "BLACKPEACH | SHOP",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={kanit.className}>{children}</body>
     </html>
   );
 }

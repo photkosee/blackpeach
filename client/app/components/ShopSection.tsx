@@ -5,7 +5,7 @@ const ShopSection = () => {
     <div className="w-full pt-7 pb-2 xl:pb-3 bg-white">
       <div className="w-full flex flex-col sm:flex-row gap-2 xl:gap-3 sm:h-[29vw]">
         <Link
-          href="/music"
+          href="/shop/music"
           passHref
           className="relative overflow-hidden w-full h-[58vw] sm:h-full"
         >
@@ -19,7 +19,7 @@ const ShopSection = () => {
           </div>
         </Link>
         <Link
-          href="/apparel"
+          href="/shop/apparel"
           passHref
           className="relative overflow-hidden w-full h-[58vw] sm:h-full"
         >

@@ -12,7 +12,7 @@ const CollectionSection = () => {
       <div className="w-full flex flex-col gap-1 sm:gap-2 xl:gap-3">
         <div className="w-full flex flex-col sm:flex-row gap-1 sm:gap-2 xl:gap-3 sm:h-[27vw]">
           <Link
-            href={"/in-your-area"}
+            href={"/collections/in-your-area"}
             passHref={true}
             className="w-full h-[47vw] sm:h-full overflow-hidden"
           >
@@ -22,7 +22,7 @@ const CollectionSection = () => {
             />
           </Link>
           <Link
-            href={"/the-album"}
+            href={"/collections/the-album"}
             passHref={true}
             className="w-full h-[47vw] sm:h-full overflow-hidden"
           >
@@ -33,7 +33,7 @@ const CollectionSection = () => {
           </Link>
         </div>
         <Link
-          href={"/born-pink"}
+          href={"/collections/born-pink"}
           passHref={true}
           className="w-full h-[47vw] sm:h-[27vw] overflow-hidden"
         >

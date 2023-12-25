@@ -1,3 +1,5 @@
+import SwiperContainer from "./Swiper";
+
 const NewSection = () => {
   return (
     <div
@@ -7,7 +9,9 @@ const NewSection = () => {
       <div className="text-2xl sm:text-3xl 2xl:text-5xl font-bold uppercase">
         NEW ARRIVALS
       </div>
-      <div></div>
+      <div className="w-full">
+        <SwiperContainer />
+      </div>
     </div>
   );
 };

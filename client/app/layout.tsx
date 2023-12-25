@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={kanit.className}>{children}</body>
+      <body className={kanit.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

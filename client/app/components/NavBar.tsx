@@ -35,6 +35,7 @@ const shop = [
 
 const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -56,14 +57,25 @@ const NavBar = () => {
       </div>
 
       <div
-        className={`fixed lg:hidden top-0 left-0 h-full w-full z-40 ${
-          isSidebarOpen ? "scale-100" : "scale-0 transition-all delay-700"
+        className={`fixed top-0 right-0 h-full transition-all duration-300 z-50 ${
+          isCartOpen ? "w-[280px]" : "w-0"
+        } bg-neutral-900 text-white`}
+      ></div>
+
+      <div
+        className={`fixed top-0 left-0 h-full w-full z-40 ${
+          isSidebarOpen || isCartOpen
+            ? "scale-100"
+            : "scale-0 transition-all delay-700"
         }`}
-        onClick={() => setIsSidebarOpen(false)}
+        onClick={() => {
+          setIsSidebarOpen(false);
+          setIsCartOpen(false);
+        }}
       >
         <div
-          className={`fixed lg:hidden top-0 left-0 h-full w-full z-40 ${
-            isSidebarOpen ? "opacity-100" : "opacity-0"
+          className={`fixed top-0 left-0 h-full w-full z-40 ${
+            isSidebarOpen || isCartOpen ? "opacity-100" : "opacity-0"
           } backdrop-blur-[2.3px] transition-opacity duration-700 ease-out`}
         />
       </div>
@@ -94,9 +106,13 @@ const NavBar = () => {
               className="w-[150px] lg:w-[200px] border-2 lg:border-4 border-primary"
             />
           </Link>
-          <div className="text-primary">
-            <PiShoppingCart className="text-[23px] md:text-[27px] lg:text-[35px] cursor-pointer" />
-          </div>
+          <button
+            className="text-primary text-[23px] md:text-[27px] lg:text-[35px]
+            p-1 transition-transform hover:-translate-x-0.5"
+            onClick={() => setIsCartOpen(true)}
+          >
+            <PiShoppingCart />
+          </button>
         </nav>
       </div>
     </>

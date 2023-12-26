@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { FC } from "react";
 import {
   Dropdown,
   Link,
@@ -10,16 +10,30 @@ import {
   Button,
 } from "@nextui-org/react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
-const DropDown = () => {
+type ItemType = {
+  name: string;
+  link: string;
+};
+
+interface DropDownProps {
+  topic: string;
+  items: ItemType[];
+}
+
+const DropDown: FC<DropDownProps> = ({ topic, items }) => {
+  const router = useRouter();
+
   return (
     <Dropdown backdrop="blur" className="dark rounded-none">
       <DropdownTrigger>
         <Button
           variant="light"
-          className="rounded-none text-primary text-md px-2 xl:px-3 xl:text-lg font-semibold gap-0 hover:text-white"
+          className="rounded-none text-primary text-md px-2 xl:px-3 xl:text-lg
+          font-semibold gap-0 hover:text-white"
         >
-          Open Menu
+          {topic}
           <MdOutlineKeyboardArrowDown size={27} />
         </Button>
       </DropdownTrigger>
@@ -28,12 +42,17 @@ const DropDown = () => {
         aria-label="Static Actions"
         className="text-primary"
       >
-        <DropdownItem key="new">New file</DropdownItem>
-        <DropdownItem key="copy">Copy link</DropdownItem>
-        <DropdownItem key="edit">Edit file</DropdownItem>
-        <DropdownItem key="delete" className="text-danger" color="danger">
-          Delete file
-        </DropdownItem>
+        {items.map((item: ItemType) => (
+          <DropdownItem
+            key={item.name}
+            className="rounded-none"
+            onClick={() => {
+              router.push(item.link);
+            }}
+          >
+            {item.name}
+          </DropdownItem>
+        ))}
       </DropdownMenu>
     </Dropdown>
   );

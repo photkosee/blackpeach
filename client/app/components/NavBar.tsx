@@ -3,14 +3,39 @@ import DropDown from "./DropDown";
 import { PiShoppingCart } from "react-icons/pi";
 import { RiBarChartHorizontalFill } from "react-icons/ri";
 
+const collections = [
+  {
+    name: "In Your Area",
+    link: "/collections/in-your-area",
+  },
+  {
+    name: "The Album",
+    link: "/collections/the-album",
+  },
+  {
+    name: "Born Pink",
+    link: "/collections/born-pink",
+  },
+];
+
+const shop = [
+  {
+    name: "Music",
+    link: "/shop/music",
+  },
+  {
+    name: "Apparel",
+    link: "/shop/apparel",
+  },
+];
+
 const NavBar = () => {
   return (
     <div className="w-full sticky top-0 z-30">
       <nav className="px-3 sm:px-5 xl:px-12 py-5 flex justify-between items-center bg-black w-full">
         <div className="hidden lg:flex">
-          <DropDown />
-          <DropDown />
-          <DropDown />
+          <DropDown topic="Collections" items={collections} />
+          <DropDown topic="Shop" items={shop} />
         </div>
         <div className="flex lg:hidden text-primary">
           <RiBarChartHorizontalFill className="text-[23px] md:text-[27px]" />

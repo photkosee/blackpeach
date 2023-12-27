@@ -1,21 +1,74 @@
-import React from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
+import Link from "next/link";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import { ItemType } from "./DropDown";
 
-const CustomAccordion = () => {
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+interface CustomAccordionProps {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
 
+type ContentType = {
+  topic: string;
+  items: ItemType[];
+};
+
+const contents: ContentType[] = [
+  {
+    topic: "SHOP",
+    items: [
+      {
+        name: "Music",
+        link: "/shop/music",
+      },
+      {
+        name: "Apparel",
+        link: "/shop/apparel",
+      },
+    ],
+  },
+  {
+    topic: "COLLECTIONS",
+    items: [
+      {
+        name: "In your area",
+        link: "/collections/in-your-area",
+      },
+      {
+        name: "The album",
+        link: "/collections/the-album",
+      },
+      {
+        name: "Born pink",
+        link: "/collections/born-pink",
+      },
+    ],
+  },
+];
+
+const CustomAccordion: FC<CustomAccordionProps> = ({ setOpen }) => {
   return (
-    <Accordion selectionMode="multiple">
-      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
-        {defaultContent}
-      </AccordionItem>
+    <Accordion className="dark">
+      {contents.map((content: ContentType, index) => (
+        <AccordionItem
+          key={index}
+          aria-label={content.topic}
+          title={content.topic}
+        >
+          <div className="flex flex-col gap-1 justify-start items-start uppercase">
+            {content.items.map((item: ItemType, index) => (
+              <Link
+                key={index}
+                href={item.link}
+                className="w-full rouned-none hover:bg-neutral-700 transition-all pl-2 py-2
+                hover:text-white border border-transparent hover:border-neutral-600 text-sm"
+                onClick={() => setOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </AccordionItem>
+      ))}
     </Accordion>
   );
 };

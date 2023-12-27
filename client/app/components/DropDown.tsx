@@ -12,7 +12,7 @@ import {
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useRouter } from "next/navigation";
 
-type ItemType = {
+export type ItemType = {
   name: string;
   link: string;
 };
@@ -30,8 +30,8 @@ const DropDown: FC<DropDownProps> = ({ topic, items }) => {
       <DropdownTrigger>
         <Button
           variant="light"
-          className="rounded-none text-primary text-md px-2 xl:px-3 xl:text-lg
-          font-semibold gap-0 hover:text-white"
+          className="rounded-none text-primary text-md pl-2 pr-1 xl:pl-3 xl:pr-1
+          xl:text-lg font-semibold gap-0 hover:text-white uppercase"
         >
           {topic}
           <MdOutlineKeyboardArrowDown size={27} />
@@ -40,7 +40,7 @@ const DropDown: FC<DropDownProps> = ({ topic, items }) => {
       <DropdownMenu
         variant="faded"
         aria-label="Static Actions"
-        className="text-primary"
+        className="text-primary uppercase"
       >
         {items.map((item: ItemType) => (
           <DropdownItem

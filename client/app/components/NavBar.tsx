@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import DropDown from "./DropDown";
-import { PiShoppingCart, PiXSquare } from "react-icons/pi";
+import { PiShoppingCart } from "react-icons/pi";
 import { RiBarChartHorizontalFill } from "react-icons/ri";
 import { useState } from "react";
-import CustomAccordion from "./CustomAccordion";
+import MobileSideBar from "./MobileSideBar";
+import CartSideBar from "./CartSideBar";
 
 const collections = [
   {
@@ -39,28 +40,12 @@ const NavBar = () => {
 
   return (
     <>
-      <div
-        className={`fixed lg:hidden top-0 h-full transition-all duration-300 z-50 ${
-          isSidebarOpen ? "w-[280px]" : "w-0"
-        } bg-neutral-900 text-white`}
-      >
-        <div
-          className="w-full h-full relative flex flex-col justify-start items-center
-          px-12 pt-28 pb-20 text-primary hidden"
-        >
-          <PiXSquare
-            className="absolute top-5 right-5 text-4xl cursor-pointer"
-            onClick={() => setIsSidebarOpen(false)}
-          />
-          <CustomAccordion />
-        </div>
-      </div>
+      <MobileSideBar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
 
-      <div
-        className={`fixed top-0 right-0 h-full transition-all duration-300 z-50 ${
-          isCartOpen ? "w-[280px]" : "w-0"
-        } bg-neutral-900 text-white`}
-      ></div>
+      <CartSideBar isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
 
       <div
         className={`fixed top-0 left-0 h-full w-full z-40 ${
@@ -85,7 +70,7 @@ const NavBar = () => {
         bg-black flex justify-between items-center shadow-2xl"
       >
         <nav className="flex justify-between items-center w-full">
-          <div className="hidden md:flex">
+          <div className="hidden md:flex gap-1">
             <DropDown topic="Collections" items={collections} />
             <DropDown topic="Shop" items={shop} />
           </div>

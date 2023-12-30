@@ -1,83 +1,100 @@
 "use client";
 
-import Autoplay from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, A11y, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import ItemCard from "./ItemCard";
+import { useRef } from "react";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 const SwiperContainer = () => {
+  const swiperRef = useRef<SwiperClass | null>(null);
+
   return (
-    <Swiper
-      grabCursor={true}
-      autoplay={{
-        delay: 5000,
-        stopOnLastSlide: false,
-        disableOnInteraction: false,
-      }}
-      breakpoints={{
-        0: {
-          spaceBetween: 10,
-          slidesPerView: 1,
-        },
-        468: {
-          spaceBetween: 10,
-          slidesPerView: 2,
-        },
-        768: {
-          spaceBetween: 15,
-          slidesPerView: 3,
-        },
-        1024: {
-          spaceBetween: 15,
-          slidesPerView: 4,
-        },
-        1280: {
-          spaceBetween: 30,
-          slidesPerView: 5,
-        },
-      }}
-      loop={true}
-      centeredSlides={true}
-      navigation
-      className="h-40 w-full px-7"
-    >
-      <SwiperSlide>
-        <div className="w-full flex items-center flex-col gap-2">
-          <div></div>
-          <div className="text-lg font-semibold text-center break-words w-full">
-            asdfsadfasdfasdfsadfsadfasdfasdfasdfsadfsdfasdfsadf
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="w-full flex items-center flex-col gap-2">
-          <div></div>
-          <div className="text-lg font-semibold text-center break-words w-full">
-            asdfsadfasdfasdfsadfsadfasdfasdfasdfsadfsdfasdfsadf
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="w-full flex items-center flex-col gap-2">
-          <div></div>
-          <div className="text-lg font-semibold text-center break-words w-full">
-            asdfsadfasdfasdfsadfsadfasdfasdfasdfsadfsdfasdfsadf
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="w-full flex items-center flex-col gap-2">
-          <div></div>
-          <div className="text-lg font-semibold text-center break-words w-full">
-            asdfsadfasdfasdfsadfsadfasdfasdfasdfsadfsdfasdfsadf
-          </div>
-        </div>
-      </SwiperSlide>
-    </Swiper>
+    <div className="px-10 w-full">
+      <Swiper
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        modules={[Autoplay, Navigation, A11y, Pagination]}
+        grabCursor={true}
+        autoplay={{
+          delay: 5000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true,
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          420: {
+            slidesPerView: 2,
+          },
+          730: {
+            slidesPerView: 3,
+          },
+          1100: {
+            slidesPerView: 4,
+          },
+        }}
+        spaceBetween={5}
+        loop={true}
+        className="relative max-w-7xl"
+      >
+        <SwiperSlide>
+          <ItemCard
+            image="/images/hero-banner.png"
+            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
+            price={100}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ItemCard
+            image="/images/hero-banner.png"
+            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
+            price={200}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ItemCard
+            image="/images/hero-banner.png"
+            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
+            price={300}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ItemCard
+            image="/images/hero-banner.png"
+            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
+            price={400}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ItemCard
+            image="/images/hero-banner.png"
+            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
+            price={500}
+          />
+        </SwiperSlide>
+        <button
+          onClick={() => swiperRef.current && swiperRef.current.slidePrev()}
+          className="text-white bg-black h-7 w-7 flex items-center justify-center pl-1
+          absolute top-1/2 left-0 -translate-y-1/2 rounded-full z-20"
+        >
+          <MdArrowBackIos />
+        </button>
+        <button
+          onClick={() => swiperRef.current && swiperRef.current.slideNext()}
+          className="text-white bg-black h-7 w-7 flex items-center justify-center pl-1
+          absolute top-1/2 right-0 -translate-y-1/2 rounded-full z-20"
+        >
+          <MdArrowForwardIos />
+        </button>
+      </Swiper>
+    </div>
   );
 };
 

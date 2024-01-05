@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const ShopSection = () => {
   return (
-    <div className="w-full pt-7 pb-1 sm:pb-2 xl:pb-3 bg-white">
+    <div className="w-full pt-7 pb-1 bg-white">
       <div
-        className="w-full flex flex-col sm:flex-row gap-1 sm:gap-2 xl:gap-3 sm:h-[29vw]
-        px-1 sm:px-2 xl:px-3"
+        className="w-full flex flex-col sm:flex-row gap-1 sm:h-[29vw]
+        px-1"
       >
         <Link
           href="/shop/music"

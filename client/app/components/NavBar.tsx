@@ -61,7 +61,7 @@ const NavBar = () => {
         <div
           className={`fixed top-0 left-0 h-full w-full z-40 ${
             isSidebarOpen || isCartOpen ? "opacity-100" : "opacity-0"
-          } backdrop-blur-[2.3px] transition-opacity duration-700 ease-out`}
+          } backdrop-blur-sm transition-opacity duration-700 ease-out`}
         />
       </div>
 

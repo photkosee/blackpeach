@@ -4,7 +4,6 @@ import "./globals.css";
 import { Providers } from "./providers";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import { CartContextProvider } from "./CartContext";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
@@ -22,11 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={kanit.className}>
         <Providers>
-          <CartContextProvider>
-            <NavBar />
-            {children}
-            <Footer />
-          </CartContextProvider>
+          <NavBar />
+          {children}
+          <Footer />
         </Providers>
       </body>
     </html>

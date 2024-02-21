@@ -1,14 +1,15 @@
 "use client";
 
+import { FC, useRef } from "react";
+
 import { Autoplay, A11y, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import ItemCard from "./ItemCard";
-import { useRef } from "react";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+
+import ProductCard, { ProductProps } from "./ProductCard";
 
 const SwiperContainer = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -45,36 +46,36 @@ const SwiperContainer = () => {
         className="relative max-w-7xl"
       >
         <SwiperSlide>
-          <ItemCard
-            image="/images/hero-banner.png"
+          <ProductCard
+            image="/images/shirt.png"
             name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
             price={100}
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ItemCard
-            image="/images/hero-banner.png"
+          <ProductCard
+            image="/images/shirt.png"
             name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
             price={200}
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ItemCard
-            image="/images/hero-banner.png"
+          <ProductCard
+            image="/images/shirt.png"
             name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
             price={300}
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ItemCard
-            image="/images/hero-banner.png"
+          <ProductCard
+            image="/images/shirt.png"
             name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
             price={400}
           />
         </SwiperSlide>
         <SwiperSlide>
-          <ItemCard
-            image="/images/hero-banner.png"
+          <ProductCard
+            image="/images/shirt.png"
             name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
             price={500}
           />

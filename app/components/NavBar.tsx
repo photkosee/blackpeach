@@ -75,7 +75,7 @@ const NavBar = () => {
             <DropDown topic="Shop" items={shop} />
           </div>
           <button
-            className="flex md:hidden text-primary p-1 transition-transform hover:translate-x-0.5"
+            className="flex md:hidden text-primary p-2 transition-transform hover:translate-x-0.5"
             onClick={() => setIsSidebarOpen(true)}
           >
             <RiBarChartHorizontalFill className="text-[23px] md:text-[27px]" />
@@ -93,7 +93,7 @@ const NavBar = () => {
           </Link>
           <button
             className="text-primary text-[23px] md:text-[27px] lg:text-[35px]
-            p-1 transition-transform hover:-translate-x-0.5"
+            p-2 transition-transform hover:-translate-x-0.5"
             onClick={() => setIsCartOpen(true)}
           >
             <PiShoppingCart />

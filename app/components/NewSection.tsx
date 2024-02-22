@@ -1,3 +1,4 @@
+import { products } from "../storage";
 import SwiperContainer from "./Swiper";
 
 const NewSection = () => {
@@ -11,7 +12,7 @@ const NewSection = () => {
           NEW ARRIVALS
         </div>
         <div className="w-full">
-          <SwiperContainer />
+          <SwiperContainer products={products.slice(-7)} />
         </div>
       </div>
     </div>

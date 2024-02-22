@@ -9,9 +9,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
-import ProductCard, { ProductProps } from "./ProductCard";
+import ProductCard from "./ProductCard";
+import { ProductProps } from "../types";
 
-const SwiperContainer = () => {
+const SwiperContainer: FC<{ products: ProductProps[] }> = ({ products }) => {
   const swiperRef = useRef<SwiperClass | null>(null);
 
   return (
@@ -45,41 +46,11 @@ const SwiperContainer = () => {
         loop={true}
         className="relative max-w-7xl"
       >
-        <SwiperSlide>
-          <ProductCard
-            image="/images/shirt.png"
-            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
-            price={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard
-            image="/images/shirt.png"
-            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
-            price={200}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard
-            image="/images/shirt.png"
-            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
-            price={300}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard
-            image="/images/shirt.png"
-            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
-            price={400}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard
-            image="/images/shirt.png"
-            name="asdfsadfasdfasdsadfasdfasdfsadf asdfsdf"
-            price={500}
-          />
-        </SwiperSlide>
+        {products.map((product) => (
+          <SwiperSlide key={product.id}>
+            <ProductCard {...product} />
+          </SwiperSlide>
+        ))}
         <button
           onClick={() => swiperRef.current && swiperRef.current.slidePrev()}
           className="text-white bg-black h-7 w-7 flex items-center justify-center pl-1

@@ -1,25 +1,7 @@
-import { ProductProps } from "./ProductCard";
+import { products } from "../storage";
 import SwiperContainer from "./Swiper";
 
 const BestSection = () => {
-  const products: ProductProps[] = [
-    {
-      image: "",
-      name: "Laptop",
-      price: 999,
-    },
-    {
-      image: "",
-      name: "Laptop",
-      price: 999,
-    },
-    {
-      image: "",
-      name: "Laptop",
-      price: 999,
-    },
-  ];
-
   return (
     <div
       className="w-full py-7 bg-white
@@ -28,7 +10,7 @@ const BestSection = () => {
       <div className="text-2xl sm:text-3xl 2xl:text-5xl font-black uppercase">
         BEST SELLERS
       </div>
-      <SwiperContainer />
+      <SwiperContainer products={products} />
     </div>
   );
 };

@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 
 import productsData from ".//../products.json";
 import { FC } from "react";
-import { ProductProps } from "../components/ProductCard";
+import { ProductProps } from "../types";
 
-const ProductPage: FC<ProductProps> = (product) => {
+const ProductPage: FC<{ product: ProductProps }> = ({ product }) => {
   const router = useRouter();
 
   // Ensure the component doesn't render on the server without data

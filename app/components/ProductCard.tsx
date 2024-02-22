@@ -9,14 +9,23 @@ const ProductCard: FC<ProductProps> = (product: ProductProps) => {
   return (
     <Link
       href={`/products/${product.name}`}
-      className="flex flex-col gap-2 w-full px-3 mx-auto relative"
+      className="flex flex-col gap-2 w-full px-3 mx-auto relative group"
     >
       <div className="w-full h-2/3">
         <img
           src={product.images[0]}
           alt="item"
-          className={`w-full h-full object-cover`}
+          className={`w-full h-full object-cover ${
+            hasMultipleImages && "group-hover:hidden"
+          }`}
         />
+        {hasMultipleImages && (
+          <img
+            src={product.images[1]}
+            alt="item"
+            className="w-full h-full object-cover hidden group-hover:block"
+          />
+        )}
       </div>
       <div
         className="flex flex-col justify-center items-center gap-1 text-center

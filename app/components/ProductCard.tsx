@@ -32,7 +32,18 @@ const ProductCard: FC<ProductProps> = (product: ProductProps) => {
         uppercase px-2 break-words font-semibold w-full text-xs sm:text-md 2xl:text-lg"
       >
         <div className="w-full">{product.name.replace(/-/g, " ")}</div>
-        <div className="w-full">${product.price}</div>
+        <div className="flex w-full gap-2 items-center justify-center">
+          <div className={`${product.discount === 0 && "hidden"}`}>
+            ${(product.price * ((100 - product.discount) / 100)).toFixed(2)}
+          </div>
+          <div
+            className={`${
+              product.discount > 0 && "line-through text-gray-500"
+            }`}
+          >
+            ${product.price.toFixed(2)}
+          </div>
+        </div>
       </div>
     </Link>
   );

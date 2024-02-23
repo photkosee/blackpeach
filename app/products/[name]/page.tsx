@@ -34,7 +34,7 @@ const ProductDetails = () => {
   return (
     <>
       <title>{name}</title>
-      <div className="min-h-screen w-full bg-white flex justify-center">
+      <div className="min-h-full w-full bg-white flex justify-center">
         <div
           className="container mx-auto py-5 lg:py-10 max-w-5xl px-5
           flex flex-col"
@@ -81,8 +81,23 @@ const ProductDetails = () => {
               self-center md:self-auto items-center md:items-start text-center md:text-start"
             >
               <div className="font-bold text-2xl">{name}</div>
-              <div className="font-bold text-xl">
-                ${product.price.toFixed(2)}
+              <div
+                className="flex w-full gap-2 items-center justify-center md:justify-start
+                font-bold text-xl"
+              >
+                <div className={`${product.discount === 0 && "hidden"}`}>
+                  $
+                  {(product.price * ((100 - product.discount) / 100)).toFixed(
+                    2
+                  )}
+                </div>
+                <div
+                  className={`${
+                    product.discount > 0 && "line-through text-gray-500"
+                  }`}
+                >
+                  ${product.price.toFixed(2)}
+                </div>
               </div>
               <div className="font-semibold text-lg text-primary flex divide-x-1">
                 <div className="text-center bg-black w-8">{count}</div>

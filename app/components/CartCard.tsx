@@ -1,6 +1,7 @@
 import { Button, Divider } from "@nextui-org/react";
 import { Minus, Plus } from "lucide-react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Image from "next/image";
 import { FC, useState } from "react";
 
 interface CartCardProps {

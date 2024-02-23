@@ -19,7 +19,7 @@ const CartCard: FC<CartCardProps> = ({ image, name, price, size }) => {
         <img
           src="/images/shirt.png"
           alt="item"
-          className="w-1/2 h-full object-cover"
+          className="w-1/2 h-full object-contain"
         />
         <div className="w-1/2 flex flex-col gap-1 items-start">
           <div className="text-white uppercase text-md font-semibold text-center">

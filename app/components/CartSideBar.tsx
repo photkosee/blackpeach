@@ -51,7 +51,7 @@ const CartSideBar: FC<CartSideBarProps> = ({ isCartOpen, setIsCartOpen }) => {
               </div>
               <Button
                 className="dark py-3 bg-primary text-black text-md font-semibold
-              rounded-none uppercase"
+                rounded-none uppercase"
               >
                 Check out
               </Button>

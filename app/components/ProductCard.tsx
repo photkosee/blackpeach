@@ -15,7 +15,7 @@ const ProductCard: FC<ProductProps> = (product: ProductProps) => {
         <img
           src={product.images[0]}
           alt="item"
-          className={`w-full h-full object-cover ${
+          className={`w-full h-full object-contain ${
             hasMultipleImages && "group-hover:hidden"
           }`}
         />
@@ -23,12 +23,12 @@ const ProductCard: FC<ProductProps> = (product: ProductProps) => {
           <img
             src={product.images[1]}
             alt="item"
-            className="w-full h-full object-cover hidden group-hover:block"
+            className="w-full h-full object-contain hidden group-hover:block"
           />
         )}
       </div>
       <div
-        className="flex flex-col justify-center items-center gap-1 text-center
+        className="flex flex-col justify-center items-center gap-1 text-center text-black
         uppercase px-2 break-words font-semibold w-full text-xs sm:text-md 2xl:text-lg"
       >
         <div className="w-full">{product.name.replace(/-/g, " ")}</div>

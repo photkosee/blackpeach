@@ -10,7 +10,7 @@ const BestSection = () => {
       <div className="text-2xl sm:text-3xl 2xl:text-5xl font-black uppercase">
         BEST SELLERS
       </div>
-      <SwiperContainer products={products} />
+      <SwiperContainer products={products.slice(0, 5)} />
     </div>
   );
 };

@@ -86,7 +86,7 @@ const ProductDetails = () => {
                 font-bold text-xl"
               >
                 <div
-                  className={`${product.discount === 0 && "hidden"} text-black`}
+                  className={`${product.discount === 0 && "hidden text-black"}`}
                 >
                   $
                   {(product.price * ((100 - product.discount) / 100)).toFixed(
@@ -95,7 +95,9 @@ const ProductDetails = () => {
                 </div>
                 <div
                   className={`${
-                    product.discount > 0 && "line-through text-gray-500"
+                    product.discount > 0
+                      ? "line-through text-gray-500"
+                      : "text-black"
                   }`}
                 >
                   ${product.price.toFixed(2)}

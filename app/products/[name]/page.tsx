@@ -25,7 +25,7 @@ const ProductDetails = () => {
 
   if (product === undefined) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-full flex items-center justify-center">
         <Spinner label="Loading..." color="primary" size="lg" />
       </div>
     );
@@ -80,12 +80,14 @@ const ProductDetails = () => {
               className="max-w-[280px] flex flex-col gap-3 order-3 md:order-3
               self-center md:self-auto items-center md:items-start text-center md:text-start"
             >
-              <div className="font-bold text-2xl">{name}</div>
+              <div className="font-bold text-2xl text-black">{name}</div>
               <div
                 className="flex w-full gap-2 items-center justify-center md:justify-start
                 font-bold text-xl"
               >
-                <div className={`${product.discount === 0 && "hidden"}`}>
+                <div
+                  className={`${product.discount === 0 && "hidden"} text-black`}
+                >
                   $
                   {(product.price * ((100 - product.discount) / 100)).toFixed(
                     2
@@ -125,7 +127,7 @@ const ProductDetails = () => {
               >
                 Add to cart
               </Button>
-              <div>{product.captions}</div>
+              <div className="text-black">{product.captions}</div>
             </div>
           </div>
         </div>

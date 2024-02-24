@@ -2,6 +2,7 @@ import { Button, Divider } from "@nextui-org/react";
 import { Dispatch, FC, SetStateAction } from "react";
 import { PiXSquare } from "react-icons/pi";
 import CartCard from "./CartCard";
+import Link from "next/link";
 
 interface CartSideBarProps {
   isCartOpen: boolean;
@@ -49,12 +50,14 @@ const CartSideBar: FC<CartSideBarProps> = ({ isCartOpen, setIsCartOpen }) => {
                 <div>Subtotal</div>
                 <div>$100</div>
               </div>
-              <Button
-                className="dark py-3 bg-primary text-black text-md font-semibold
-                rounded-none uppercase"
-              >
-                Check out
-              </Button>
+              <Link href="/checkout" className="w-full">
+                <Button
+                  className="dark py-3 bg-primary text-black text-md font-semibold
+                  rounded-none uppercase w-full"
+                >
+                  Check out
+                </Button>
+              </Link>
             </div>
           </>
         ) : (

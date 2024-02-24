@@ -22,8 +22,10 @@ export default function RootLayout({
       <body className={kanit.className}>
         <Providers>
           <NavBar />
-          {children}
-          <Footer />
+          <div className="bg-white min-h-screen flex flex-col justify-between">
+            {children}
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

@@ -8,7 +8,7 @@ const NewSection = () => {
         className="w-full mx-auto md:px-15 py-7
         items-center flex justify-center flex-col gap-5"
       >
-        <div className="text-2xl sm:text-3xl 2xl:text-5xl font-black uppercase">
+        <div className="text-2xl sm:text-3xl 2xl:text-5xl text-black font-black uppercase">
           NEW ARRIVALS
         </div>
         <div className="w-full">

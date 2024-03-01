@@ -4,9 +4,16 @@ import Link from "next/link";
 import DropDown from "./DropDown";
 import { PiShoppingCart } from "react-icons/pi";
 import { RiBarChartHorizontalFill } from "react-icons/ri";
-import { useState } from "react";
 import MobileSideBar from "./MobileSideBar";
 import CartSideBar from "./CartSideBar";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import {
+  closeCart,
+  closeMenu,
+  openCart,
+  openMenu,
+} from "../features/sidebars/sidebarSlice";
 
 const collections = [
   {
@@ -35,39 +42,38 @@ const shop = [
 ];
 
 const NavBar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const { isMenuOpen, isCartOpen } = useSelector(
+    (state: RootState) => state.sidebar
+  );
 
   return (
     <>
-      <MobileSideBar
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
+      <MobileSideBar />
 
-      <CartSideBar isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+      <CartSideBar />
 
       <div
         className={`fixed top-0 left-0 h-full w-full z-40 ${
-          isSidebarOpen || isCartOpen
+          isMenuOpen || isCartOpen
             ? "scale-100"
             : "scale-0 transition-all delay-700"
         }`}
         onClick={() => {
-          setIsSidebarOpen(false);
-          setIsCartOpen(false);
+          dispatch(closeMenu());
+          dispatch(closeCart());
         }}
       >
         <div
           className={`fixed top-0 left-0 h-full w-full z-40 ${
-            isSidebarOpen || isCartOpen ? "opacity-100" : "opacity-0"
+            isMenuOpen || isCartOpen ? "opacity-100" : "opacity-0"
           } backdrop-blur-sm transition-opacity duration-700 ease-out`}
         />
       </div>
 
       <div
         className="w-full sticky top-0 px-3 sm:px-7 xl:px-12 py-3 sm:py-5 z-30
-        bg-black flex justify-between items-center shadow-2xl"
+        bg-black flex justify-between items-center shadow-lg"
       >
         <nav className="flex justify-between items-center w-full">
           <div className="hidden md:flex gap-1">
@@ -76,7 +82,7 @@ const NavBar = () => {
           </div>
           <button
             className="flex md:hidden text-primary p-2 transition-transform hover:translate-x-0.5"
-            onClick={() => setIsSidebarOpen(true)}
+            onClick={() => dispatch(openMenu())}
           >
             <RiBarChartHorizontalFill className="text-[23px] md:text-[27px]" />
           </button>
@@ -94,7 +100,7 @@ const NavBar = () => {
           <button
             className="text-primary text-[23px] md:text-[27px] lg:text-[35px]
             p-2 transition-transform hover:-translate-x-0.5"
-            onClick={() => setIsCartOpen(true)}
+            onClick={() => dispatch(openCart())}
           >
             <PiShoppingCart />
           </button>

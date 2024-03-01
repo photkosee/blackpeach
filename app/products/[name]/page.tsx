@@ -11,8 +11,13 @@ import {
   Spinner,
 } from "@nextui-org/react";
 import { Minus, Plus } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { ProductCart } from "@/app/types";
+import { addToCart } from "@/app/features/carts/cartSlice";
+import { openCart } from "@/app/features/sidebars/sidebarSlice";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch();
   const [currImage, setCurrImage] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const pathname = usePathname();
@@ -22,6 +27,26 @@ const ProductDetails = () => {
   const name = productName
     .replace(/-/g, " ")
     .replace(/\b\w/g, (char) => char.toUpperCase());
+
+  const handleAddToCart = (
+    id: number,
+    image: string,
+    name: string,
+    size: string,
+    price: number,
+    quantity: number
+  ) => {
+    const addedProduct: ProductCart = {
+      id: id,
+      image: image,
+      name: name,
+      size: size,
+      price: price,
+      quantity: quantity,
+    };
+    dispatch(addToCart(addedProduct));
+    dispatch(openCart());
+  };
 
   if (product === undefined) {
     return (
@@ -36,7 +61,7 @@ const ProductDetails = () => {
       <title>{name}</title>
       <div className="min-h-full w-full bg-white flex justify-center">
         <div
-          className="container mx-auto py-5 lg:py-10 max-w-5xl px-5
+          className="container mx-auto py-7 lg:py-10 max-w-5xl px-5
           flex flex-col"
         >
           <Breadcrumbs
@@ -126,6 +151,19 @@ const ProductDetails = () => {
               <Button
                 className="dark py-3 bg-black text-primary text-md font-semibold
                 rounded-none uppercase max-w-40"
+                onClick={() =>
+                  handleAddToCart(
+                    product.id,
+                    product.images[0],
+                    product.name,
+                    product.sizes[0],
+                    product.discount
+                      ? product.price * ((100 - product.discount) / 100)
+                      : product.price,
+                    count
+                  )
+                }
+                isDisabled={count === 0}
               >
                 Add to cart
               </Button>

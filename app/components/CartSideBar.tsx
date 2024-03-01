@@ -1,16 +1,36 @@
-import { Button, Divider } from "@nextui-org/react";
-import { Dispatch, FC, SetStateAction } from "react";
-import { PiXSquare } from "react-icons/pi";
-import CartCard from "./CartCard";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
 
-interface CartSideBarProps {
-  isCartOpen: boolean;
-  setIsCartOpen: Dispatch<SetStateAction<boolean>>;
-}
+import { Button, Divider } from "@nextui-org/react";
+import { PiXSquare } from "react-icons/pi";
 
-const CartSideBar: FC<CartSideBarProps> = ({ isCartOpen, setIsCartOpen }) => {
-  const items = true;
+import CartCard from "./CartCard";
+import { RootState } from "../store";
+import { ProductCart } from "../types";
+import { closeCart } from "../features/sidebars/sidebarSlice";
+
+const CartSideBar = () => {
+  const dispatch = useDispatch();
+  const { data, totalCost } = useSelector((state: RootState) => state.cart);
+  const { isCartOpen } = useSelector((state: RootState) => state.sidebar);
+
+  // useEffect(() => {
+  //   dispatch(getCartTotal());
+  // }, [useSelector((state: RootState) => state.cart)]);
+
+  // const handleRemoveItem = (itemId: number) => {
+  //   dispatch(removeItem({ id: itemId }));
+  // };
+
+  // const increaseQty = (cartProductId: number, currentQty: number) => {
+  //   const newQty = currentQty + 1;
+  //   dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
+  // };
+
+  // const decreaseQty = (cartProductId: number, currentQty: number) => {
+  //   const newQty = Math.max(currentQty - 1, 1);
+  //   dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
+  // };
 
   return (
     <div
@@ -26,29 +46,34 @@ const CartSideBar: FC<CartSideBarProps> = ({ isCartOpen, setIsCartOpen }) => {
       >
         <PiXSquare
           className="absolute top-3 right-3 text-4xl cursor-pointer text-primary"
-          onClick={() => setIsCartOpen(false)}
+          onClick={() => dispatch(closeCart())}
         />
         <div className="uppercase font-semibold text-xl">Shopping cart</div>
         <Divider className="dark" />
-        {items ? (
+        {data.length > 0 ? (
           <>
             <div
               className="w-full h-full flex flex-col items-center justify-start
               overflow-y-auto gap-2"
             >
-              <CartCard image="/images/shirt.png" name="Shirt" price={100} />
-              <CartCard
-                image="/images/shirt.png"
-                name="Shirt"
-                price={100}
-                size="s"
-              />
+              {data.map((product: ProductCart) => (
+                <>
+                  <CartCard
+                    id={product.id}
+                    image={product.image}
+                    name={product.name}
+                    price={product.price}
+                    quantity={product.quantity}
+                    size={product.size}
+                  />
+                </>
+              ))}
             </div>
-            <Divider className="dark" />
             <div className="w-full flex flex-col gap-3">
+              <Divider className="dark" />
               <div className="w-full flex justify-between px-1 text-xl font-semibold">
                 <div>Subtotal</div>
-                <div>$100</div>
+                <div>${totalCost.toFixed(2)}</div>
               </div>
               <Link href="/checkout" className="w-full">
                 <Button
@@ -62,7 +87,7 @@ const CartSideBar: FC<CartSideBarProps> = ({ isCartOpen, setIsCartOpen }) => {
           </>
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center overflow-y-auto">
-            <img src="/images/rose.png" alt="shirt" className="w-full" />
+            <img src="/images/rose.png" alt="empty cart" className="w-full" />
             <div className="text-center text-lg">
               Your cart is currently empty.
             </div>

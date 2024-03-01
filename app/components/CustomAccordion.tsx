@@ -1,11 +1,8 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
 import Link from "next/link";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { ItemType } from "./DropDown";
-
-interface CustomAccordionProps {
-  setOpen: Dispatch<SetStateAction<boolean>>;
-}
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../features/sidebars/sidebarSlice";
 
 type ContentType = {
   topic: string;
@@ -45,7 +42,9 @@ const contents: ContentType[] = [
   },
 ];
 
-const CustomAccordion: FC<CustomAccordionProps> = ({ setOpen }) => {
+const CustomAccordion = () => {
+  const dispatch = useDispatch();
+
   return (
     <Accordion className="dark">
       {contents.map((content: ContentType, index) => (
@@ -61,7 +60,7 @@ const CustomAccordion: FC<CustomAccordionProps> = ({ setOpen }) => {
                 href={item.link}
                 className="w-full rouned-none hover:bg-neutral-700 transition-all pl-2 py-2
                 hover:text-white border border-transparent hover:border-neutral-600 text-sm"
-                onClick={() => setOpen(false)}
+                onClick={() => dispatch(closeMenu())}
               >
                 {item.name}
               </Link>

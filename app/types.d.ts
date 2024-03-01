@@ -8,3 +8,12 @@ export interface ProductProps {
   discount: number;
   captions: string;
 }
+
+export interface ProductCart {
+  id: number;
+  image: string;
+  name: string;
+  size: string;
+  price: number;
+  quantity: number;
+}

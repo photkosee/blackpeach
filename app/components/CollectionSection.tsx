@@ -6,7 +6,7 @@ const CollectionSection = () => {
       className="w-full py-7 bg-white
       items-center flex justify-center flex-col gap-5"
     >
-      <div className="text-2xl sm:text-3xl 2xl:text-5xl font-black uppercase">
+      <div className="text-2xl sm:text-3xl 2xl:text-5xl font-black uppercase text-black">
         COLLECTIONS
       </div>
       <div className="w-full flex flex-col gap-1 px-1">

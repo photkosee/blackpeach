@@ -1,55 +1,86 @@
-import { Button, Divider } from "@nextui-org/react";
-import { Minus, Plus } from "lucide-react";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
 import { FC, useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { Button } from "@nextui-org/react";
+import { Minus, Plus, Trash2 } from "lucide-react";
+
+import { closeCart } from "../features/sidebars/sidebarSlice";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeItem,
+} from "../features/carts/cartSlice";
 
 interface CartCardProps {
+  id: number;
   image: string;
   name: string;
   price: number;
   size?: string;
+  quantity?: number;
 }
 
-const CartCard: FC<CartCardProps> = ({ image, name, price, size }) => {
+const CartCard: FC<CartCardProps> = ({
+  id,
+  image,
+  name,
+  price,
+  size,
+  quantity,
+}) => {
   const [count, setCount] = useState<number>(0);
+  const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col gap-2 w-full px-3 mx-auto items-center justify-center">
+    <div
+      className="flex flex-col gap-2 w-full px-3 py-1 mx-auto items-center justify-center
+      bg-neutral-700 rounded-lg"
+    >
       <div className="flex w-full justify-between items-center gap-1">
-        <img
-          src="/images/shirt.png"
-          alt="item"
-          className="w-1/2 h-full object-contain"
-        />
+        <img src={image} alt="item" className="w-1/2 h-full object-contain" />
         <div className="w-1/2 flex flex-col gap-1 items-start">
-          <div className="text-white uppercase text-md font-semibold text-center">
-            {name}
-          </div>
+          <Link
+            href={`/products/${name.toLowerCase()}`}
+            className="text-white uppercase text-sm font-semibold text-start"
+            onClick={() => dispatch(closeCart())}
+          >
+            {name
+              .replace(/-/g, " ")
+              .replace(/\b\w/g, (char) => char.toUpperCase())}
+          </Link>
           <div>${price}</div>
           {size && <div>Size: {size}</div>}
         </div>
       </div>
-      <div className="w-full max-w-[110px] flex justify-between items-center">
+      <div className="font-semibold text-lg text-primary flex divide-x-1 divide-neutral-700">
+        <div
+          className="h-full flex items-center p-1"
+          role="button"
+          onClick={() => dispatch(removeItem({ id: id }))}
+        >
+          <Trash2 />
+        </div>
+        <div className="text-center bg-black w-8">{quantity}</div>
         <Button
           isIconOnly
           size="sm"
-          className="bg-primary text-black"
-          onClick={() => setCount((prev) => prev - 1)}
+          className="bg-black rounded-none"
+          onClick={() => dispatch(decreaseQuantity({ id: id, quantity: 1 }))}
         >
-          <Minus className="w-4" />
+          <Minus className="w-4 text-primary" />
         </Button>
-        {count}
         <Button
           isIconOnly
           size="sm"
-          className="bg-primary text-black p-1"
-          onClick={() => setCount((prev) => prev + 1)}
+          className="bg-black rounded-none"
+          onClick={() => dispatch(increaseQuantity({ id: id, quantity: 1 }))}
         >
-          <Plus className="w-4" />
+          <Plus className="w-4 text-primary" />
         </Button>
       </div>
-      <Divider className="dark" />
     </div>
   );
 };

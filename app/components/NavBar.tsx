@@ -46,6 +46,7 @@ const NavBar = () => {
   const { isMenuOpen, isCartOpen } = useSelector(
     (state: RootState) => state.sidebar
   );
+  const { data } = useSelector((state: RootState) => state.cart);
 
   return (
     <>
@@ -98,10 +99,18 @@ const NavBar = () => {
             />
           </Link>
           <button
-            className="text-primary text-[23px] md:text-[27px] lg:text-[35px]
+            className="relative text-primary text-[23px] md:text-[27px] lg:text-[35px]
             p-2 transition-transform hover:-translate-x-0.5"
             onClick={() => dispatch(openCart())}
           >
+            {data.length > 0 && (
+              <div
+                className="absolute top-0 right-0 w-4 h-4 bg-primary rounded-full
+             text-black text-xs font-semibold flex justify-center items-center"
+              >
+                {data.length}
+              </div>
+            )}
             <PiShoppingCart />
           </button>
         </nav>

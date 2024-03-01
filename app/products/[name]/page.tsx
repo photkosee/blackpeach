@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { products } from "@/app/storage";
 import {
@@ -47,6 +47,10 @@ const ProductDetails = () => {
     dispatch(addToCart(addedProduct));
     dispatch(openCart());
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (product === undefined) {
     return (

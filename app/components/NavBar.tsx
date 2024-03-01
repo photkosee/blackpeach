@@ -14,6 +14,7 @@ import {
   openCart,
   openMenu,
 } from "../features/sidebars/sidebarSlice";
+import { usePathname } from "next/navigation";
 
 const collections = [
   {
@@ -44,9 +45,10 @@ const shop = [
 const NavBar = () => {
   const dispatch = useDispatch();
   const { isMenuOpen, isCartOpen } = useSelector(
-    (state: RootState) => state.sidebar
+    (state: RootState) => state.bp_sidebar
   );
-  const { data } = useSelector((state: RootState) => state.cart);
+  const { data } = useSelector((state: RootState) => state.bp_cart);
+  const path = usePathname();
 
   return (
     <>
@@ -99,8 +101,9 @@ const NavBar = () => {
             />
           </Link>
           <button
-            className="relative text-primary text-[23px] md:text-[27px] lg:text-[35px]
-            p-2 transition-transform hover:-translate-x-0.5"
+            className={`relative text-primary text-[23px] md:text-[27px] lg:text-[35px]
+            p-2 transition-transform hover:-translate-x-0.5
+            ${path === "/checkout" && "hidden"}`}
             onClick={() => dispatch(openCart())}
           >
             {data.length > 0 && (

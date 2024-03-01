@@ -1,11 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import { FC } from "react";
+import { ChevronLeft } from "lucide-react";
+import { useDispatch } from "react-redux";
 
 import { Button, Input } from "@nextui-org/react";
-import { ChevronLeft } from "lucide-react";
 
-export default function Information() {
+import { setAddress } from "@/app/features/addresses/addressSlice";
+
+interface InformationProps {
+  setState: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Information: FC<InformationProps> = ({ setState }) => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (formData: FormData) => {
     const first_name = formData.get("first_name");
     const last_name = formData.get("last_name");
@@ -15,6 +25,23 @@ export default function Information() {
     const state = formData.get("state");
     const postcode = formData.get("postcode");
     const phone = formData.get("phone");
+    const country = formData.get("country");
+
+    dispatch(
+      setAddress({
+        firstName: first_name as string,
+        lastName: last_name as string,
+        address: address as string,
+        apartment: apartment as string,
+        suburb: suburb as string,
+        state: state as string,
+        postcode: postcode as string,
+        phone: phone as string,
+        country: country as string,
+      })
+    );
+
+    setState(1);
   };
 
   return (
@@ -23,7 +50,7 @@ export default function Information() {
       items-center md:items-start"
     >
       <form
-        className="flex flex-col gap-y-3 order-2 md:order-1 flex-1 max-w-lg w-full"
+        className="flex flex-col gap-y-3 max-w-lg w-full"
         action={handleSubmit}
       >
         <div className="flex flex-col xl:flex-row gap-y-2 gap-x-3">
@@ -86,6 +113,14 @@ export default function Information() {
         <Input
           isRequired
           type="text"
+          label="Country"
+          name="country"
+          radius="sm"
+          size="sm"
+        />
+        <Input
+          isRequired
+          type="text"
           label="Phone"
           name="phone"
           radius="sm"
@@ -107,7 +142,8 @@ export default function Information() {
           </Button>
         </div>
       </form>
-      <div className="order-1 md:order-2 flex-1">adsf</div>
     </div>
   );
-}
+};
+
+export default Information;

@@ -13,7 +13,7 @@ const updateTotalCost = (data: ProductCart[]) => {
 };
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: "bp_cart",
   initialState,
   reducers: {
     addToCart(state, action: PayloadAction<ProductCart>) {

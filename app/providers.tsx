@@ -3,14 +3,17 @@
 import { Provider } from "react-redux";
 import { NextUIProvider } from "@nextui-org/react";
 import { CartContextProvider } from "./CartContext";
-import store from "./store";
+import store, { persistor } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      <NextUIProvider>
-        <CartContextProvider>{children}</CartContextProvider>
-      </NextUIProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <NextUIProvider>
+          <CartContextProvider>{children}</CartContextProvider>
+        </NextUIProvider>
+      </PersistGate>
     </Provider>
   );
 }

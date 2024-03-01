@@ -11,26 +11,8 @@ import { closeCart } from "../features/sidebars/sidebarSlice";
 
 const CartSideBar = () => {
   const dispatch = useDispatch();
-  const { data, totalCost } = useSelector((state: RootState) => state.cart);
-  const { isCartOpen } = useSelector((state: RootState) => state.sidebar);
-
-  // useEffect(() => {
-  //   dispatch(getCartTotal());
-  // }, [useSelector((state: RootState) => state.cart)]);
-
-  // const handleRemoveItem = (itemId: number) => {
-  //   dispatch(removeItem({ id: itemId }));
-  // };
-
-  // const increaseQty = (cartProductId: number, currentQty: number) => {
-  //   const newQty = currentQty + 1;
-  //   dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
-  // };
-
-  // const decreaseQty = (cartProductId: number, currentQty: number) => {
-  //   const newQty = Math.max(currentQty - 1, 1);
-  //   dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
-  // };
+  const { data, totalCost } = useSelector((state: RootState) => state.bp_cart);
+  const { isCartOpen } = useSelector((state: RootState) => state.bp_sidebar);
 
   return (
     <div
@@ -75,7 +57,11 @@ const CartSideBar = () => {
                 <div>Subtotal</div>
                 <div>${totalCost.toFixed(2)}</div>
               </div>
-              <Link href="/checkout" className="w-full">
+              <Link
+                href="/checkout"
+                className="w-full"
+                onClick={() => dispatch(closeCart())}
+              >
                 <Button
                   className="dark py-3 bg-primary text-black text-md font-semibold
                   rounded-none uppercase w-full"

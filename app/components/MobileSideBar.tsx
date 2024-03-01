@@ -6,7 +6,7 @@ import { closeMenu } from "../features/sidebars/sidebarSlice";
 
 const MobileSideBar = () => {
   const dispatch = useDispatch();
-  const { isMenuOpen } = useSelector((state: RootState) => state.sidebar);
+  const { isMenuOpen } = useSelector((state: RootState) => state.bp_sidebar);
 
   return (
     <div

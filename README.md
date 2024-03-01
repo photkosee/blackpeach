@@ -10,6 +10,8 @@ However, it's a good library with well documented for API's props. This allows y
 Address Dropdown list
 The official website had done it so well that I'm curios how they handled it. I got a chance to implement a simplier version during my internship. At the time, it was a dropdown list of countries then if the selected country is Thailand, it will require different set of address with dropdown of suburb then province (using a third party api). But for the official website, they handle so many countries. I think the website made it's own data set for regular shipping address since I don't see any API requesting from the site when I select countries. I'm planing on doing a proper one that handle as many countries as possible.
 
+### Customizing your slider at will with Swipper.js
+
 ### Context API vs Redux
 
 Personally, Zustand is another interesting global state management tool to use.
@@ -17,3 +19,9 @@ Personally, Zustand is another interesting global state management tool to use.
 ### Classic Redux vs Redux Toolkit
 
 At first, I was tossing props around just to open/close sidebars. But then I reimplemented those features using redux. I'd say it is easier to track the state that way since you don't need to pass through multiple components just to control the state of the sidebars.
+
+With Redux persist, it is super easy to persist stage which you don't need to store and load everything from localStorage by yourself. With a little setup, it'd do the work for you.
+
+Here is all you need to do in order to set Redux Persist up:
+Before:
+After:

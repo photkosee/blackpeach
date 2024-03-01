@@ -1,12 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";
 import Information from "./components/Information";
+import Payment from "./components/Payment";
+import Shipping from "./components/Shipping";
+import { useDispatch } from "react-redux";
+import { closeCart } from "../features/sidebars/sidebarSlice";
+import TotalProducts from "./components/TotalProducts";
 
 const CheckoutPage = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState<number>(0);
+
+  useEffect(() => {
+    dispatch(closeCart());
+  }, []);
 
   return (
     <div className="min-h-full bg-white">
@@ -36,7 +46,16 @@ const CheckoutPage = () => {
           </BreadcrumbItem>
         </Breadcrumbs>
 
-        {state === 0 && <Information />}
+        <div className="w-full flex flex-col md:flex-row gap-y-5 gap-x-10">
+          <div className="flex-1 md:order-1 order-2">
+            {state === 0 && <Information setState={setState} />}
+            {state === 1 && <Shipping setState={setState} />}
+            {state === 2 && <Payment />}
+          </div>
+          <div className="flex-1 md:order-2 order-1">
+            <TotalProducts />
+          </div>
+        </div>
       </div>
     </div>
   );

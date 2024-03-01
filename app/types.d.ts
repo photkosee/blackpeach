@@ -17,3 +17,15 @@ export interface ProductCart {
   price: number;
   quantity: number;
 }
+
+export interface AddressInfo {
+  firstName: string;
+  lastName: string;
+  address: string;
+  apartment?: string;
+  suburb: string;
+  state: string;
+  postcode: string;
+  country: string;
+  phone: string;
+}

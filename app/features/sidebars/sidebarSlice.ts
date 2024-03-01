@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const sidebarSlice = createSlice({
-  name: "sidebar",
+  name: "bp_sidebar",
   initialState,
   reducers: {
     openCart(state) {

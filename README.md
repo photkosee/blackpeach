@@ -2,26 +2,91 @@
 
 > You can visit the current version of the site [here](https://blackpeach.vercel.app/), deployed on Vercel.
 
-A full stack E-Commerce platform showcasing music and accessories of a girl group | Developing <br/>
+A full stack E-Commerce platform showcasing music and accessories of a k-pop group <br/>
 
-About next UI, sometimes you forgot to decalre use client when using the provided components but the components wouldn't be rendered with out declaring use client in that file. The main problem is that there is no errors shown and it could take you sometimes before figuring out that you just miss declaring use client, which would have been nice if this behavior would generate some error message.
-However, it's a good library with well documented for API's props. This allows you to easily customize the components as your will.
+## Background
 
-Address Dropdown list
-The official website had done it so well that I'm curios how they handled it. I got a chance to implement a simplier version during my internship. At the time, it was a dropdown list of countries then if the selected country is Thailand, it will require different set of address with dropdown of suburb then province (using a third party api). But for the official website, they handle so many countries. I think the website made it's own data set for regular shipping address since I don't see any API requesting from the site when I select countries. I'm planing on doing a proper one that handle as many countries as possible.
+I'm really excited about this: with Blackpink possibly disbanding, I decided to channel that energy into something positive. So, I came up with the idea of building an e-commerce site with their theme. It's a chance for me to learn new skills, like Redux, which I've been curious about but never had the chance to dive into. Until now, I've mostly worked with the Context API, so this is a great opportunity to broaden my web development knowledge.
 
-### Customizing your slider at will with Swipper.js
+## Persisting your stages with Redux Persist
 
-### Context API vs Redux
+I totally agree that Redux isn't as intimidating as it might seem (with [Redux Toolkit](https://redux-toolkit.js.org/)), especially when compared to the Context API. You can have a look at how I prepare Context API in those files with the name "Context" in it since I didn't remove those files, with my custom `useLocalStorage` hook. However, what really makes Redux shine for me is [Redux persist](https://github.com/rt2zz/redux-persist).
 
-Personally, Zustand is another interesting global state management tool to use.
+Redux persist simplifies the process of persisting state. You don't have to worry about manually storing and loading everything from localStorage; with just a bit of setup, it handles it all so well. It's like having a reliable assistant taking care of the tedious tasks for you.
 
-### Classic Redux vs Redux Toolkit
+Here is all I needed to do in order to set Redux Persist up (at `store.ts`): <br>
+Before:<br>
 
-At first, I was tossing props around just to open/close sidebars. But then I reimplemented those features using redux. I'd say it is easier to track the state that way since you don't need to pass through multiple components just to control the state of the sidebars.
+```
+const store = configureStore({
+  reducer: {
+    cart: cartSlice,
+    sidebar: sidebarSlice,
+  },
+});
 
-With Redux persist, it is super easy to persist stage which you don't need to store and load everything from localStorage by yourself. With a little setup, it'd do the work for you.
+export type RootState = ReturnType<typeof store.getState>;
 
-Here is all you need to do in order to set Redux Persist up:
-Before:
+export default store;
+```
+
 After:
+
+```
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const rootReducer = combineReducers({
+  bp_cart: cartSlice,
+  bp_sidebar: sidebarSlice,
+  bp_address: addressSlice,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = createStore(persistedReducer);
+
+export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
+```
+
+Then wraping an extra Provider layer:
+
+```
+<PersistGate loading={null} persistor={persistor}>
+  {children}
+</PersistGate>
+```
+
+## Dynamic routes in Next.js
+
+I'd say setting dynamic routes in React.js is not a big task. However, when you can simply do it by structuring your files in Next.js, this makes it so easy to manage. All you need to do is creating a folder with a `[]` wraping the name of the route, and that's it.
+
+For this project, have a look at `/app/products/[name]`.
+
+## Further improvment
+
+About address form, I'm impressed by how well the official website manages it. During one of my internships, I worked on a simpler version with dropdowns for countries and specific requirements (Suburbs and Provinces) for places like Thailand. However, the official site are able to handle most of the countries. However, the official site seems to have its own system in place—no visible API requests.
+
+I found this [Countries States Cities Database](https://github.com/dr5hn/countries-states-cities-database?tab=readme-ov-file) API which is quite convenience. However, the API is not able to determince whether that specific country has got states. It simply put possible Suburbs or Provinces as States and Cities.
+
+Testing is also a good idea. It might not be necessary for all components but it'll be useful for those components which are requesting for an API.
+
+## Next UI case study
+
+Sometimes I forget to put in a "use client" when I'm messing around with components from the Next UI library. It's annoying because there's no heads-up about it, so I end up scratching my head for a while trying to figure out what went wrong. It'd be cool if they could throw in an error message for that.
+
+Anyway, despite that little hiccup, the library itself is pretty solid. The documentation is decent, especially for the APIs and props. It makes tweaking the components to fit what I need super easy, which is a big plus.
+
+## Customizing your slider at will with Swipper.js
+
+With the help of `useRef`, it is so simple to customize your slider the way you like. An example in my code base at `/app/components/Swiper.tsx`
+
+## Contributing
+
+Pull requests are welcome. Please open an issue first to discuss what'd like to improve.

@@ -61,7 +61,7 @@ const CartCard: FC<CartCardProps> = ({
           role="button"
           onClick={() => dispatch(removeItem({ id: id }))}
         >
-          <Trash2 />
+          <Trash2 size={20} />
         </div>
         <div className="text-center bg-black w-8">{quantity}</div>
         <Button

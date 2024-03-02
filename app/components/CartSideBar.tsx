@@ -38,17 +38,16 @@ const CartSideBar = () => {
               className="w-full h-full flex flex-col items-center justify-start
               overflow-y-auto gap-2"
             >
-              {data.map((product: ProductCart) => (
-                <>
-                  <CartCard
-                    id={product.id}
-                    image={product.image}
-                    name={product.name}
-                    price={product.price}
-                    quantity={product.quantity}
-                    size={product.size}
-                  />
-                </>
+              {data.map((product: ProductCart, index: number) => (
+                <CartCard
+                  key={index}
+                  id={product.id}
+                  image={product.image}
+                  name={product.name}
+                  price={product.price}
+                  quantity={product.quantity}
+                  size={product.size}
+                />
               ))}
             </div>
             <div className="w-full flex flex-col gap-3">

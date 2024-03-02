@@ -46,13 +46,13 @@ const CheckoutPage = () => {
           </BreadcrumbItem>
         </Breadcrumbs>
 
-        <div className="w-full flex flex-col md:flex-row gap-y-5 gap-x-10">
-          <div className="flex-1 md:order-1 order-2">
+        <div className="w-full flex flex-col md:flex-row gap-y-5 gap-x-7 lg:gap-x-10 xl:gap-x-14">
+          <div className="flex-1 md:order-1 order-2 flex justify-center">
             {state === 0 && <Information setState={setState} />}
             {state === 1 && <Shipping setState={setState} />}
-            {state === 2 && <Payment />}
+            {state === 2 && <Payment setState={setState} />}
           </div>
-          <div className="flex-1 md:order-2 order-1">
+          <div className="flex-1 md:order-2 order-1 flex justify-center">
             <TotalProducts />
           </div>
         </div>

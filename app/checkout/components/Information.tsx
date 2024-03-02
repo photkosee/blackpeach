@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { FC } from "react";
-import { ChevronLeft } from "lucide-react";
-import { useDispatch } from "react-redux";
+import { AlertCircle, ChevronLeft } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Tooltip } from "@nextui-org/react";
 
 import { setAddress } from "@/app/features/addresses/addressSlice";
+import { RootState } from "@/app/store";
 
 interface InformationProps {
   setState: React.Dispatch<React.SetStateAction<number>>;
@@ -15,6 +16,7 @@ interface InformationProps {
 
 const Information: FC<InformationProps> = ({ setState }) => {
   const dispatch = useDispatch();
+  const { address } = useSelector((state: RootState) => state.bp_address);
 
   const handleSubmit = (formData: FormData) => {
     const first_name = formData.get("first_name");
@@ -49,10 +51,22 @@ const Information: FC<InformationProps> = ({ setState }) => {
       className="w-full flex flex-col md:flex-row gap-x-14 gap-y-5
       items-center md:items-start"
     >
+      <title>Information - BLACKPEACH | SHOP</title>
       <form
         className="flex flex-col gap-y-3 max-w-lg w-full"
         action={handleSubmit}
       >
+        <div className="text-black text-xl font-semibold flex items-center gap-x-1">
+          Shipping address
+          <Tooltip
+            content="Do not put personal information here"
+            placement="right-end"
+          >
+            <div className="p-1">
+              <AlertCircle size={17} />
+            </div>
+          </Tooltip>
+        </div>
         <div className="flex flex-col xl:flex-row gap-y-2 gap-x-3">
           <Input
             isRequired
@@ -61,6 +75,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
             name="first_name"
             radius="sm"
             size="sm"
+            autoComplete="given-name"
           />
           <Input
             isRequired
@@ -69,6 +84,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
             name="last_name"
             radius="sm"
             size="sm"
+            autoComplete="family-name"
           />
         </div>
         <Input
@@ -78,6 +94,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="address"
           radius="sm"
           size="sm"
+          autoComplete="address-line1"
         />
         <Input
           type="text"
@@ -85,6 +102,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="apartment"
           radius="sm"
           size="sm"
+          autoComplete="address-line2"
         />
         <Input
           isRequired
@@ -93,6 +111,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="suburb"
           radius="sm"
           size="sm"
+          autoComplete="address-level2"
         />
         <Input
           isRequired
@@ -101,6 +120,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="state"
           radius="sm"
           size="sm"
+          autoComplete="address-level1"
         />
         <Input
           isRequired
@@ -109,6 +129,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="postcode"
           radius="sm"
           size="sm"
+          autoComplete="postal-code"
         />
         <Input
           isRequired
@@ -117,6 +138,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="country"
           radius="sm"
           size="sm"
+          autoComplete="country-name"
         />
         <Input
           isRequired
@@ -125,6 +147,7 @@ const Information: FC<InformationProps> = ({ setState }) => {
           name="phone"
           radius="sm"
           size="sm"
+          autoComplete="tel"
         />
         <div className="w-full flex flex-col lg:flex-row items-center gap-y-3">
           <div className="flex-1 order-2 lg:order-1 text-gray-500">

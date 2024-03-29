@@ -1,8 +1,7 @@
-# BlackPeach
-
-> You can visit the current version of the site [here](https://blackpeach.vercel.app/), deployed on Vercel.
-
-A full stack E-Commerce platform showcasing music and accessories of a k-pop group <br/>
+<p align="center">
+  <img src="./public/images/logo.png">
+</p>
+<p align="center">An E-Commerce platform showcasing music and accessories of a famous K-Pop group. <a href="https://blackpeach.vercel.app/">Shop now!</a></p>
 
 ## Background
 

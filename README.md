@@ -1,5 +1,7 @@
 <p align="center">
-  <img width="270" src="./public/images/full_logo.png">
+  <a href="https://blackpeach.vercel.app/">
+    <img width="270" src="./public/images/full_logo.png">
+  </a>
 </p>
 <p align="center">An E-Commerce platform showcasing music and accessories of a famous K-Pop group. <a href="https://blackpeach.vercel.app/">Shop now!</a></p>
 

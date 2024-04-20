@@ -9,7 +9,8 @@ const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "BLACKPEACH | SHOP",
-  description: "E-Commerce platform by Phot Koseekrainiramon",
+  description:
+    "An E-Commerce platform showcasing music and accessories of a famous K-Pop group",
 };
 
 export default function RootLayout({
@@ -20,10 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta
-          name="description"
-          content="An E-Commerce platform showcasing music and accessories of a famous K-Pop group."
-        />
         <link rel="author" href="https://github.com/photkosee" />
         <meta name="author" content="Phot Koseekrainiramon" />
         <meta name="creator" content="Phot Koseekrainiramon" />

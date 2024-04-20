@@ -9,6 +9,22 @@
 
 I'm really excited about this: with Blackpink possibly disbanding, I decided to channel that energy into something positive. So, I came up with the idea of building an e-commerce site with their theme. It's a chance for me to learn new skills, like Redux, which I've been curious about but never had the chance to dive into. Until now, I've mostly worked with the Context API, so this is a great opportunity to broaden my web development knowledge.
 
+## Features
+
+- Product slices
+- Dynamic routes for each product
+- Payment/checkout flow
+- Cart
+- Data persistence when refreshing/mounting the page
+
+## Built with
+
+- [Next.js 14](https://nextjs.org/) - Development environment
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [Next UI](https://nextui.org/) - Components library for User Interface
+- [Redux Toolkit](https://redux-toolkit.js.org/) - State management tool
+- [Redux Persist](https://github.com/rt2zz/redux-persist) - Persist state in a Redux store
+
 ## Persisting your stages with Redux Persist
 
 I totally agree that Redux isn't as intimidating as it might seem (with [Redux Toolkit](https://redux-toolkit.js.org/)), especially when compared to the Context API. You can have a look at how I prepare Context API in those files with the name "Context" in it since I didn't remove those files, with my custom `useLocalStorage` hook. However, what really makes Redux shine for me is [Redux persist](https://github.com/rt2zz/redux-persist).

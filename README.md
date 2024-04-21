@@ -25,7 +25,7 @@ I'm really excited about this: with Blackpink possibly disbanding, I decided to 
 - [Redux Toolkit](https://redux-toolkit.js.org/) - State management tool
 - [Redux Persist](https://github.com/rt2zz/redux-persist) - Persist state in a Redux store
 
-## Persisting your stages with Redux Persist
+## Persisting your states with Redux Persist
 
 I totally agree that Redux isn't as intimidating as it might seem (with [Redux Toolkit](https://redux-toolkit.js.org/)), especially when compared to the Context API. You can have a look at how I prepare Context API in those files with the name "Context" in it since I didn't remove those files, with my custom `useLocalStorage` hook. However, what really makes Redux shine for me is [Redux persist](https://github.com/rt2zz/redux-persist).
 

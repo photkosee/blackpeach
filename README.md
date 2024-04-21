@@ -7,7 +7,7 @@
 
 ## Background
 
-I'm really excited about this: with Blackpink possibly disbanding, I decided to channel that energy into something positive. So, I came up with the idea of building an e-commerce site with their theme. It's a chance for me to learn new skills, like Redux, which I've been curious about but never had the chance to dive into. Until now, I've mostly worked with the Context API, so this is a great opportunity to broaden my web development knowledge.
+I'm really excited about this: with Blackpink possibly disbanding, I decided to channel that energy into something positive. So, I came up with the idea of building an e-commerce site with their theme (the design is from the official shop itself). It's a chance for me to learn new skills, like Redux, which I've been curious about but never had the chance to dive into. Until now, I've mostly worked with the Context API, so this is a great opportunity to broaden my web development knowledge.
 
 ## Features
 

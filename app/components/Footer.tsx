@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="w-full">
       <div
-        className="w-full bg-[url('/images/footer-small.png')] sm:bg-[url('/images/footer.png')]
+        className="w-full bg-[url('/images/footer-small.webp')] sm:bg-[url('/images/footer.webp')]
         bg-contain bg-right bg-no-repeat bg-black"
       >
         <div className="flex flex-col justify-center min-h-80 text-primary gap-y-7 pl-[5vw]">

@@ -3,7 +3,7 @@ import { ProductProps } from "./types";
 export const products: ProductProps[] = [
   {
     id: 1,
-    images: ["/products/blackpink-tote-1.png"],
+    images: ["/products/blackpink-tote-1.webp"],
     name: "blackpink-tote",
     price: 26.5,
     categories: ["in-your-area"],
@@ -14,9 +14,9 @@ export const products: ProductProps[] = [
   {
     id: 2,
     images: [
-      "/products/blackpink-face-mask-pink-logo-1.png",
-      "/products/blackpink-face-mask-pink-logo-2.png",
-      "/products/blackpink-face-mask-pink-logo-3.png",
+      "/products/blackpink-face-mask-pink-logo-1.webp",
+      "/products/blackpink-face-mask-pink-logo-2.webp",
+      "/products/blackpink-face-mask-pink-logo-3.webp",
     ],
     name: "blackpink-face-mask-pink-logo",
     price: 9.99,
@@ -28,9 +28,9 @@ export const products: ProductProps[] = [
   {
     id: 3,
     images: [
-      "/products/the-album-version1-1.png",
-      "/products/the-album-version1-2.png",
-      "/products/the-album-version1-3.png",
+      "/products/the-album-version1-1.webp",
+      "/products/the-album-version1-2.webp",
+      "/products/the-album-version1-3.webp",
     ],
     name: "the-album-version1",
     price: 30,
@@ -42,9 +42,9 @@ export const products: ProductProps[] = [
   {
     id: 4,
     images: [
-      "/products/the-album-version2-1.png",
-      "/products/the-album-version2-2.png",
-      "/products/the-album-version2-3.png",
+      "/products/the-album-version2-1.webp",
+      "/products/the-album-version2-2.webp",
+      "/products/the-album-version2-3.webp",
     ],
     name: "the-album-version2",
     price: 30,
@@ -56,8 +56,8 @@ export const products: ProductProps[] = [
   {
     id: 5,
     images: [
-      "/products/the-album-t-shirt-ii-1.png",
-      "/products/the-album-t-shirt-ii-2.png",
+      "/products/the-album-t-shirt-ii-1.webp",
+      "/products/the-album-t-shirt-ii-2.webp",
     ],
     name: "the-album-t-shirt-ii",
     price: 35,
@@ -69,8 +69,8 @@ export const products: ProductProps[] = [
   {
     id: 6,
     images: [
-      "/products/born-pink-standard-digipack-rose-1.png",
-      "/products/born-pink-standard-digipack-rose-2.png",
+      "/products/born-pink-standard-digipack-rose-1.webp",
+      "/products/born-pink-standard-digipack-rose-2.webp",
     ],
     name: "born-pink-standard-digipack-rose",
     price: 26,
@@ -82,8 +82,8 @@ export const products: ProductProps[] = [
   {
     id: 7,
     images: [
-      "/products/born-pink-standard-digipack-jennie-1.png",
-      "/products/born-pink-standard-digipack-jennie-2.png",
+      "/products/born-pink-standard-digipack-jennie-1.webp",
+      "/products/born-pink-standard-digipack-jennie-2.webp",
     ],
     name: "born-pink-standard-digipack-jennie",
     price: 26,
@@ -95,8 +95,8 @@ export const products: ProductProps[] = [
   {
     id: 8,
     images: [
-      "/products/born-pink-standard-digipack-lisa-1.png",
-      "/products/born-pink-standard-digipack-lisa-2.png",
+      "/products/born-pink-standard-digipack-lisa-1.webp",
+      "/products/born-pink-standard-digipack-lisa-2.webp",
     ],
     name: "born-pink-standard-digipack-lisa",
     price: 26,
@@ -108,8 +108,8 @@ export const products: ProductProps[] = [
   {
     id: 9,
     images: [
-      "/products/born-pink-standard-digipack-jisoo-1.png",
-      "/products/born-pink-standard-digipack-jisoo-2.png",
+      "/products/born-pink-standard-digipack-jisoo-1.webp",
+      "/products/born-pink-standard-digipack-jisoo-2.webp",
     ],
     name: "born-pink-standard-digipack-jisoo",
     price: 26,
@@ -121,8 +121,8 @@ export const products: ProductProps[] = [
   {
     id: 10,
     images: [
-      "/products/born-pink-photo-grid-hoodie-1.png",
-      "/products/born-pink-photo-grid-hoodie-2.png",
+      "/products/born-pink-photo-grid-hoodie-1.webp",
+      "/products/born-pink-photo-grid-hoodie-2.webp",
     ],
     name: "born-pink-photo-grid-hoodie",
     price: 80,
@@ -134,9 +134,9 @@ export const products: ProductProps[] = [
   {
     id: 11,
     images: [
-      "/products/ice-cream-tie-dye-t-shirt-1.png",
-      "/products/ice-cream-tie-dye-t-shirt-2.png",
-      "/products/ice-cream-tie-dye-t-shirt-3.png",
+      "/products/ice-cream-tie-dye-t-shirt-1.webp",
+      "/products/ice-cream-tie-dye-t-shirt-2.webp",
+      "/products/ice-cream-tie-dye-t-shirt-3.webp",
     ],
     name: "ice-cream-tie-dye-t-shirt",
     price: 35,
@@ -148,9 +148,9 @@ export const products: ProductProps[] = [
   {
     id: 12,
     images: [
-      "/products/blackpink-athletic-pink-puff-print-sweatpants-1.png",
-      "/products/blackpink-athletic-pink-puff-print-sweatpants-2.png",
-      "/products/blackpink-athletic-pink-puff-print-sweatpants-3.png",
+      "/products/blackpink-athletic-pink-puff-print-sweatpants-1.webp",
+      "/products/blackpink-athletic-pink-puff-print-sweatpants-2.webp",
+      "/products/blackpink-athletic-pink-puff-print-sweatpants-3.webp",
     ],
     name: "blackpink-athletic-pink-puff-print-sweatpants",
     price: 35,

@@ -16,7 +16,7 @@ const SwiperContainer: FC<{ products: ProductProps[] }> = ({ products }) => {
   const swiperRef = useRef<SwiperClass | null>(null);
 
   return (
-    <div className="px-10 w-full">
+    <div className="px-10 w-full min-h-[200px]">
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;

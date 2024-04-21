@@ -15,6 +15,7 @@ import {
   openMenu,
 } from "../features/sidebars/sidebarSlice";
 import { usePathname } from "next/navigation";
+import { Image } from "@nextui-org/react";
 
 const collections = [
   {
@@ -94,9 +95,10 @@ const NavBar = () => {
             passHref
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
-            <img
-              src="/images/logo.png"
+            <Image
+              src="/images/logo.webp"
               alt="logo"
+              radius="none"
               className="w-[150px] lg:w-[200px] border-2 lg:border-4 border-primary"
             />
           </Link>

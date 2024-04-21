@@ -8,6 +8,7 @@ import {
   BreadcrumbItem,
   Breadcrumbs,
   Button,
+  Image,
   Spinner,
 } from "@nextui-org/react";
 import { Minus, Plus } from "lucide-react";
@@ -90,18 +91,20 @@ const ProductDetails = () => {
                     currImage === index && "border-1 border-black"
                   } relative`}
                 >
-                  <img
+                  <Image
                     src={image}
                     alt={name}
+                    radius="none"
                     className="w-full h-full object-contain"
                   />
                 </div>
               ))}
             </div>
             <div className="max-w-[700px] max-h-[350px] md:max-h-none order-1 md:order-2">
-              <img
+              <Image
                 src={product.images[currImage]}
                 alt={name}
+                radius="none"
                 className="w-full h-full object-contain"
               />
             </div>

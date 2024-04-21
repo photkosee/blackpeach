@@ -1,3 +1,4 @@
+import { Image } from "@nextui-org/react";
 import { FC } from "react";
 
 interface TotalProductCardProps {
@@ -18,7 +19,12 @@ const TotalProductCard: FC<TotalProductCardProps> = ({
     <div className="w-full py-1 flex gap-x-2 justify-between">
       <div className="flex gap-x-2">
         <div className="w-20 h-22 rounded-lg border-1 border-gray-200">
-          <img src={image} className="w-full h-full object-contain" />
+          <Image
+            src={image}
+            radius="none"
+            alt={name}
+            className="w-full h-full object-contain"
+          />
         </div>
         <div className="flex items-center max-w-[150px] text-gray-700">
           {name

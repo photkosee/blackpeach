@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 import { ProductProps } from "../types";
+import { Image } from "@nextui-org/react";
 
 const ProductCard: FC<ProductProps> = (product: ProductProps) => {
   const hasMultipleImages = product.images.length > 1;
@@ -12,17 +13,19 @@ const ProductCard: FC<ProductProps> = (product: ProductProps) => {
       className="flex flex-col gap-2 w-full px-3 mx-auto relative group"
     >
       <div className="w-full h-2/3">
-        <img
+        <Image
           src={product.images[0]}
           alt="item"
+          radius="none"
           className={`w-full h-full object-contain ${
             hasMultipleImages && "group-hover:hidden"
           }`}
         />
         {hasMultipleImages && (
-          <img
+          <Image
             src={product.images[1]}
             alt="item"
+            radius="none"
             className="w-full h-full object-contain hidden group-hover:block"
           />
         )}

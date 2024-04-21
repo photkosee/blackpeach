@@ -109,17 +109,15 @@ const ProductDetails = () => {
               />
             </div>
             <div
-              className="max-w-[280px] flex flex-col gap-3 order-3 md:order-3
+              className="max-w-[280px] flex flex-col gap-3 order-3 md:order-3 text-black
               self-center md:self-auto items-center md:items-start text-center md:text-start"
             >
-              <div className="font-bold text-2xl text-black">{name}</div>
+              <div className="font-bold text-2xl">{name}</div>
               <div
                 className="flex w-full gap-2 items-center justify-center md:justify-start
                 font-bold text-xl"
               >
-                <div
-                  className={`${product.discount === 0 && "hidden text-black"}`}
-                >
+                <div className={`${product.discount === 0 && "hidden"}`}>
                   $
                   {(product.price * ((100 - product.discount) / 100)).toFixed(
                     2
@@ -127,9 +125,7 @@ const ProductDetails = () => {
                 </div>
                 <div
                   className={`${
-                    product.discount > 0
-                      ? "line-through text-gray-500"
-                      : "text-black"
+                    product.discount > 0 && "line-through text-gray-500"
                   }`}
                 >
                   ${product.price.toFixed(2)}

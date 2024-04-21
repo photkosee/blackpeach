@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
 
 import { Button } from "@nextui-org/react";
@@ -31,7 +31,6 @@ const CartCard: FC<CartCardProps> = ({
   size,
   quantity,
 }) => {
-  const [count, setCount] = useState<number>(0);
   const dispatch = useDispatch();
 
   return (
@@ -51,7 +50,7 @@ const CartCard: FC<CartCardProps> = ({
               .replace(/-/g, " ")
               .replace(/\b\w/g, (char) => char.toUpperCase())}
           </Link>
-          <div>${price}</div>
+          <div>${price.toFixed(2)}</div>
           {size && <div>Size: {size}</div>}
         </div>
       </div>

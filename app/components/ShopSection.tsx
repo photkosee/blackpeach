@@ -13,7 +13,7 @@ const ShopSection = () => {
           className="relative overflow-hidden w-full h-[58vw] sm:h-full rounded-xl"
         >
           <div
-            className="w-full bg-[url('/images/shop2.webp')] bg-cover h-full
+            className="w-full bg-[url('/images/shop2.webp')] bg-black bg-cover h-full
             transition-transform duration-200 hover:scale-110"
           />
           <div className="absolute left-7 bottom-5 lg:bottom-10 text-primary font-bold uppercase">
@@ -27,7 +27,7 @@ const ShopSection = () => {
           className="relative overflow-hidden w-full h-[58vw] sm:h-full rounded-xl"
         >
           <div
-            className="w-full bg-[url('/images/shop1.webp')] bg-cover h-full
+            className="w-full bg-[url('/images/shop1.webp')] bg-black bg-cover h-full
             transition-transform duration-200 hover:scale-110"
           />
           <div className="absolute left-7 bottom-5 lg:bottom-10 text-primary font-bold uppercase">

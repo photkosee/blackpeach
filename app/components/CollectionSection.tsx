@@ -17,7 +17,7 @@ const CollectionSection = () => {
             className="w-full h-[47vw] sm:h-full overflow-hidden rounded-xl"
           >
             <div
-              className="w-full h-full bg-[url('/images/area.webp')] bg-center bg-cover
+              className="w-full h-full bg-[url('/images/area.webp')] bg-black bg-center bg-cover
               hover:scale-110 transition-transform duration-200"
             />
           </Link>
@@ -27,7 +27,7 @@ const CollectionSection = () => {
             className="w-full h-[47vw] sm:h-full overflow-hidden rounded-xl"
           >
             <div
-              className="w-full h-full bg-[url('/images/album.webp')] bg-center bg-cover
+              className="w-full h-full bg-[url('/images/album.webp')] bg-black bg-center bg-cover
               hover:scale-110 transition-transform duration-200"
             />
           </Link>
@@ -38,7 +38,7 @@ const CollectionSection = () => {
           className="w-full h-[47vw] sm:h-[27vw] overflow-hidden rounded-xl"
         >
           <div
-            className="w-full h-full bg-[url('/images/born-big.webp')] bg-center bg-cover
+            className="w-full h-full bg-[url('/images/born-big.webp')] bg-black bg-center bg-cover
             hover:scale-110 transition-transform duration-200"
           />
         </Link>

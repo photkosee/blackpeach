@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Button, Divider, Image } from "@nextui-org/react";
+import { Button, Divider } from "@nextui-org/react";
 import { PiXSquare } from "react-icons/pi";
 
 import CartCard from "./CartCard";
@@ -72,7 +72,7 @@ const CartSideBar = () => {
           </>
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center overflow-y-auto">
-            <Image
+            <img
               src="/images/rose.webp"
               alt="empty cart"
               className="w-full h-[248px]"

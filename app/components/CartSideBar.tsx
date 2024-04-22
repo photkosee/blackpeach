@@ -75,7 +75,7 @@ const CartSideBar = () => {
             <Image
               src="/images/rose.webp"
               alt="empty cart"
-              className="w-full"
+              className="w-full h-[248px]"
             />
             <div className="text-center text-lg">
               Your cart is currently empty.

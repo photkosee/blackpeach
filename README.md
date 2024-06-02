@@ -108,6 +108,11 @@ Anyway, despite that little hiccup, the library itself is pretty solid. The docu
 
 With the help of `useRef`, it is so simple to customize your slider the way you like. An example in my code base at `/app/components/Swiper.tsx`
 
+## Author
+Phot Koseekrainiramon
+- [LinkedIn](https://www.linkedin.com/in/phot-kosee/)
+- [GitHub](https://github.com/photkosee)
+
 ## Contributing
 
 Pull requests are welcome. Please open an issue first to discuss what'd like to improve.

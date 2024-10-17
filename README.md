@@ -1,11 +1,8 @@
-<p align="center">
-  <a href="https://blackpeach.vercel.app/">
-    <img width="270" src="./public/images/full_logo.png">
-  </a>
-</p>
+# <p align="center"><a href="https://blackpeach.vercel.app/"><img width="270" src="./public/images/full_logo.png"></a></p>
+
 <p align="center">An E-Commerce platform showcasing music and accessories of a famous K-Pop group. <a href="https://blackpeach.vercel.app/">Shop now!</a></p>
 
-### Table of Contents
+## Table of Contents
 
 1. [Inspiration](#inspiration)
 2. [What this does?](#what-this-does)
@@ -125,7 +122,7 @@ Testing is also a good idea. It might not be necessary for all components but it
 
 ## Author
 Phot Koseekrainiramon
-- [LinkedIn](https://www.linkedin.com/in/phot-kosee/)
+- [LinkedIn](https://www.linkedin.com/in/photkosee/)
 - [GitHub](https://github.com/photkosee)
 
 ## Deployment
